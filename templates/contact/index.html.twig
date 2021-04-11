@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - BICC{% endblock %}
+
+{% block content %}
+    <h1 class=" text-center" style="color: #c72026; font-size: 17;margin-bottom:10px">Contacter nous</h1>
+    {% for message in app.flashes('notice') %}
+    <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    <div class="row" style="margin-bottom: 50px">
+            <div class="col-md-6">{{ form(form) }}</div>
+        <div class="col-md-6 mb">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d25544.84688709749!2d10.236968799084435!3d36.839940666167394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s1053%20Rue%20Du%20Lac%20Ghar%20El%20Melh%D8%8C%20Les%20Berges%20du%20Lac%2C%20Tunis%2C%20Tunisie!5e0!3m2!1sfr!2stn!4v1617452209073!5m2!1sfr!2stn"
+                    width="530" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+
+            </iframe>
+        </div>
+    </div>
+    <div class="container second-portion">
+        <div class="row">
+            <!-- Boxes de Acoes -->
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">MAIL & WEBSITE</h3>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp Boutique.bicc@planet.tn
+                                <br>
+                                <br>
+                                <i class="fa fa-globe" aria-hidden="true"></i> &nbsp www.BoutiqueBICC.com
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">CONTACT</h3>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp (+91)-9624XXXXX
+                                <br>
+                                <br>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp  (+91)-756706XXXX
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">ADDRESS</h3>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp 	Rue du Lac de Ghar El Melh 1053 Les Berges du Lac - TUNIS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

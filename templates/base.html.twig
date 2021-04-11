@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>{% block title %}La Boutique en ligne BICC {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/css/Bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/boutiqueCss.css') }}" rel="stylesheet">
+    <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/css/Carousel.css') }}" rel="stylesheet">
+</head>
+<body>
+<!------------NAVBAR---------------------->
+<div class="super_container">
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex flex-row">
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918577/phone.png" alt=""></div>(+216 26 277 221)
+                        </div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918597/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com"> Boutique.bicc@planet.tn</a>
+                        </div>
+                        <div class="top_bar_content ml-auto">
+                            <div class="top_bar_menu">
+                                <ul class="standard_dropdown top_bar_dropdown"></ul>
+                            </div>
+                            {% if app.user %}
+                            <div class="top_bar_user">
+                                <div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt="" ></div>
+                                <div><a href="{{ path('account') }}">Mon compte <small style="color: red">({{ app.user.firstname }})</small></a></div>
+                                <div><a href="{{ path('app_logout') }}">Déconnexion</a></div>
+                            </div>
+                            {% else %}
+                                <div class="top_bar_user">
+                                    <div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
+                                    <div><a href="{{ path('app_login') }}">S'identifier </a></div>
+                                    <div><a href="{{ path('register') }}">S'inscrire</a></div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Header Main -->
+        <div class="header_main">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo -->
+                    <div class="col-lg-2 col-sm-3 col-3 order-1">
+                        <div class="logo_container">
+                            <div class="logo"><a href="{{ "/" }}">BICC</a></div>
+                        </div>
+                    </div> <!-- Search -->
+                    <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                        <nav class="main_nav">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <!-- Main Nav Menu -->
+                                        <div class="main_nav_menu">
+                                            <ul class="standard_dropdown main_nav_dropdown">
+                                                <li><a href="{{ "/" }}">Home<i class="fas fa-chevron-down"></i></a></li>
+                                                <li class="hassubs"><a href="{{ path('products') }}">Nos produits</a></li>
+                                                <li class="hassubs"> <a href="{{ path('info_boutique_contreoller') }}">Qui sommes-nous ?</a></li>
+                                                <li><a href="{{ path('contact') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                            </ul>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div> <!-- Wishlist -->
+                    <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+                        <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                           <!-- Cart -->
+                            <div class="cart">
+                                <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                                    <div class="cart_icon"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
+                                        <div class="cart_count"><span>1</span></div>
+                                    </div>
+                                    <div class="cart_content">
+                                        <div class="cart_text"><a href="{{ path('cart') }}">Panier</a></div>
+                                        <div class="cart_price">0 DT</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Main Navigation -->
+    </header>
+</div>
+<!------------NAVBAR---------------------->
+<main role="main">
+
+    {% if block('carousel') is defined %}
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for key,header in headers %}
+            <li data-target="#myCarousel" data-slide-to="{{ key }}" {% if key == 0 %}class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for key,header in headers  %}
+            <div class="carousel-item {% if key == 0 %}active{% endif %}" style="background: url('/uploads/{{ header.illustration }}');background-size: cover;">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h3>{{ header.title }}</h3>
+                        <br>
+                        <p><a class="btn btn-lg btn-warning btn-sm" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
+
+        <!-- hazina code zeyed kol te3 page home 7atineh fi home-->
+        {% block content %}
+        {% endblock %}
+
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="container" style="margin-bottom: 20px">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 footer-col">
+                    <div class="logofooter"> BICC</div>
+                    <p>Trouvez le meilleur choix de produits avec les prix les plus bas chez BICC, site de vente en ligne avec livraison express sur toute la Tunisie.
+                        Vous trouverez les prix les moins chers en Tunisie chez BICC, votre boutique en ligne numéro 1 des bonnes affaires.
+                    </p>
+
+
+                </div>
+                <div class="col-md-3 col-sm-6 footer-col">
+                    <h6 class="heading7">NOS SERVICEIS</h6>
+                    <ul class="footer-ul">
+                        <li><a href="#"> Commande</a></li>
+                        <li><a href="#"> Peiement</a></li>
+                        <li><a href="#"> Expédition & Livraison</a></li>
+                        <li><a href="#"> Retours &  Échanges</a></li>
+                        <li><a href="#"> Réparation Et Garantie</a></li>
+                        <li><a href="#"> Livraison Express en 48 heures</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-col">
+                    <h6 class="heading7">LATEST POST</h6>
+                    <div class="post">
+                        <p><i class="fa fa-map-pin"></i> 	Rue du Lac de Ghar El Melh 1053 Les Berges du Lac - TUNIS</p>
+                        <p><i class="fa fa-phone"></i> Telephone  : (+216) 26 277 221</p>
+                        <p><i class="fa fa-envelope"></i> E-mail : 	Boutique.bicc@planet.tn</p>
+                        <p><i class="fa fa-stop-circle-o"></i> Temps : 7 jours sur 7, Du Lundi Au Samedi: 08h00 à 19h00 Dimanche: 09h00 à 15h00
+                    </div></p>
+
+                </div>
+                <div class="col-md-3 col-sm-6 footer-col">
+                    <h6 class="heading7">Social Media</h6>
+                    <ul class="footer-social">
+                        <li><i class="fa fa-linkedin social-icon linked-in" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-facebook social-icon facebook" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-twitter social-icon twitter" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright © 2021-présent BICC</p>
+            </div>
+        </div>
+    </footer>
+    <!--footer start from here-->
+
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+
+</body>
+</html>

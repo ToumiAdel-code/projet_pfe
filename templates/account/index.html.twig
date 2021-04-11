@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+
+     <h1 class="sous-titre">Mon compte</h1>
+     Bienvenue <strong style="color: red">{{ app.user.firstname}}</strong> dans votre compte.<br>
+     C'est dans espace que vous allez pouvoir toute bos informations personnelles .
+     <hr>
+     <div class="row mb-5">
+          <div class="col-md-4">
+               <div class="account-item text-center">
+                    <img src="{{ asset('assets/img/lock.png') }}" alt="Modifier mon mot de passe"><br>
+                    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+               </div>
+          </div>
+          <div class="col-md-4">
+               <div class="account-item text-center">
+                    <img src="{{ asset('assets/img/house.png') }}" alt="Gérer mes adresses"><br>
+                    <a href="{{ path('account_address') }}">Gérer mes adresses</a>
+               </div>
+          </div>
+          <div class="col-md-4">
+               <div class="account-item text-center">
+                    <img src="{{ asset('assets/img/shopping-bag.png') }}" alt="Mes commendes"><br>
+                    <a href="{{ path('account_order') }}">Mes commendes</a><br>
+               </div>
+          </div>
+     </div>
+<hr>
+{% endblock %}

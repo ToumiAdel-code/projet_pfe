@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Three columns of text below the carousel -->
+    <div style="border: 1px solid #e5e5e5">
+        <strong><h3 style="color:#5353c6; margin: 15px 20px ">Nos meilleures ventes</h3></strong>
+        <strong style="margin: 20px">Découvrez les articles leas plus vendus</strong>
+
+        <div class="row row-cols-1 row-cols-md-4 g-3" style="margin:15px">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card text-center">
+                        <a href="{{ path('product', {'slug' : product.slug}) }}">
+                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+                        </a><hr>
+                        <div class="card-body">
+                            <h6 class="card-title" style="color: red">{{ product.name }}</h6>
+                            <p class="card-text">
+                                {{ product.subtitle }}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">{{ (product.price/100)|number_format(3,',','.')}} DT</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+
+        <!----------- Description --------------------->
+
+
+    <div class="block-brand-slider nav-style-2 absolute-nav hover-to-show" style="margin-bottom: 40px;">
+        <div class="seo"><span style="color: #000000; font-size: 10pt;"><strong>Trouvez le meilleur choix de produits avec les prix les plus bas chez <strong style="color: red">BICC</strong>, site de vente en ligne avec livraison express sur toute la Tunisie</strong></span></div>
+        <div class="seo"><span style="color: #000000; font-size: 10pt;">Vous trouverez&nbsp;<strong data-stringify-type="bold">les prix les moins chers en Tunisie</strong>&nbsp;chez <strong style="color: red">BICC</strong> , votre&nbsp;<strong data-stringify-type="bold">boutique en ligne</strong>&nbsp;numéro 1 des&nbsp;<strong data-stringify-type="bold">bonnes affaires</strong>. Ne cherchez plus ailleurs, chez <strong style="color: red">BICC</strong> une large sélection de produits de qualité vous attend.</span></div>
+        <div class="seo"><span style="color: #000000; font-size: 10pt;"><strong style="color: red">BICC</strong> est là pour tout le monde, que vous soyez dans la&nbsp;</strong>&nbsp;<strong data-stringify-type="bold">bureau</strong>, commandez en ligne et on vous livre chez vous.</span></div>
+        <div class="seo"><span style="color: #000000; font-size: 10pt;">Vous êtes cinéphile et amateurs de&nbsp;<strong data-stringify-type="bold">high-tech</strong>,&nbsp;<strong data-stringify-type="bold">achetez en ligne</strong>&nbsp;chez nous,&nbsp;<strong data-stringify-type="bold">smart TV</strong>,&nbsp;<strong data-stringify-type="bold">Téléphone&nbsp;</strong>Iphone &amp; samsung bref nous avons les&nbsp;<strong data-stringify-type="bold">meilleures marques en Tunisie&nbsp;</strong>avec<strong data-stringify-type="bold">&nbsp;les meilleurs délais de livraisons.</strong></span></div>
+        <div class="seo"><span style="color: #000000; font-size: 10pt;">Vous êtes passionné de&nbsp;<strong data-stringify-type="bold">Gaming</strong>, votre&nbsp;<strong data-stringify-type="bold">carte graphique</strong>&nbsp;n’est plus à la pointe de la technologie et votre&nbsp;<strong data-stringify-type="bold">Ordinateur</strong>&nbsp;a besoin d’un lifting, chez <strong style="color: red">BICC</strong> c’est le paradis de la high-tech a des prix défiants toute concurrence. Alors n’attendez plus&nbsp;<strong data-stringify-type="bold">commandez en ligne</strong>&nbsp;votre&nbsp;<strong data-stringify-type="bold">PC portable Gamer</strong>&nbsp;et vos&nbsp;<strong data-stringify-type="bold">accessoires Gamming</strong>.</span></div>
+        <div class="seo"><span style="color: #000000; font-size: 10pt;">Papa et maman, vous cherchez une&nbsp;<strong data-stringify-type="bold">poussette</strong>&nbsp;ou bien un&nbsp;<strong data-stringify-type="bold">siège auto</strong>, <strong style="color: red">BICC</strong> n’a oublié personne, Sociétés et professionnels vous êtes chez vous, faites de&nbsp;<strong data-stringify-type="bold">bonnes affaires</strong>&nbsp;et&nbsp;<strong data-stringify-type="bold">commandez en ligne en toute sécurité</strong>&nbsp;auprès de votre partenaire l’<strong data-stringify-type="bold">imprimante</strong>&nbsp;qu’il vous faut,&nbsp;<strong data-stringify-type="bold">photocopieur</strong>,&nbsp;<strong data-stringify-type="bold">toner</strong>,&nbsp;<strong data-stringify-type="bold">cartouche</strong>&nbsp;et toute la&nbsp;<strong data-stringify-type="bold">bureautique</strong>&nbsp;dont vous avez besoin a&nbsp;<strong data-stringify-type="bold">des prix pas cher</strong>&nbsp;et avec&nbsp;<strong data-stringify-type="bold">livraison express.</strong></span></div>
+    </div>
+
+    <!---------------------------- fou9 footer ------------------------------------->
+    <div class="container second-portion">
+        <div class="row">
+            <!-- Boxes de Acoes -->
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">MAIL & WEBSITE</h3>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp Boutique.bicc@planet.tn
+                                <br>
+                                <br>
+                                <i class="fa fa-globe" aria-hidden="true"></i> &nbsp www.BoutiqueBICC.com
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">CONTACT</h3>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp (+91)-9624XXXXX
+                                <br>
+                                <br>
+                                <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp  (+91)-756706XXXX
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="info">
+                            <h3 class="title">ADDRESS</h3>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp 	Rue du Lac de Ghar El Melh 1053 Les Berges du Lac - TUNIS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
